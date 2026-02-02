@@ -1,0 +1,61 @@
+.membership-section {
+  padding: 60px;
+  display: flex;
+  justify-content: center;
+}
+
+/* GREEN CARD */
+.membership-card {
+  width: 100%;
+  max-width: 1300px;
+  background: #2f6f2f;
+  border-radius: 28px;
+  padding: 60px;
+
+  display: grid;
+  grid-template-columns: 55% 45%;
+  align-items: center;
+  gap: 40px;
+}
+
+/* LEFT */
+.membership-left h1 {
+  color: white;
+  font-size: 54px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.membership-left p {
+  margin-top: 18px;
+  color: #e5e5e5;
+  font-size: 18px;
+  max-width: 520px;
+}
+
+/* BUTTON */
+.join-btn {
+  margin-top: 28px;
+  padding: 14px 28px;
+  border-radius: 10px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  background: #19c463;
+  color: white;
+}
+
+/* RIGHT IMAGE */
+.membership-right {
+  display: flex;
+  justify-content: center;
+}
+
+.membership-right img {
+  height: 320px; /* div jitna hi */
+  width: auto;
+  border-radius: 22px;
+  object-fit: cover;
+
+  transform: scale(1.6); /* ⭐ image badi dikhegi */
+}
