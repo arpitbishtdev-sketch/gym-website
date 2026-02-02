@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useMemo } from "react";
 import AdminLayout from "../layout/AdminLayout";
-import { API } from "../api";
+import { API } from "../../api";
+
 import MembersGraph from "../components/MembersGraph";
 
 import {
