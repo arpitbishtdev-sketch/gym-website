@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import AdminLayout from "../layout/AdminLayout";
-import { API } from "../api";
+import { API } from "../../../api";
 
 export default function Members() {
   const [members, setMembers] = useState([]);
