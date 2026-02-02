@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
-import "./plans.css";
+import "./Plans.css";
 import ElectricBorder from "../components/ElectricBorder";
+import { API } from "../api"; // path adjust
 
 export default function Plans() {
   const [dbPlans, setDbPlans] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/plans")
+    fetch(`${API}/api/plans`, {
+      credentials: "include",
+    })
       .then((res) => res.json())
       .then((data) => setDbPlans(data))
       .catch((err) => console.log(err));

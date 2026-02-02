@@ -5,6 +5,7 @@ import LoginModal from "./LoginModal";
 import { GoArrowUpRight } from "react-icons/go";
 import "./Navbar.css";
 import { Link, useNavigate } from "react-router-dom";
+import { API } from "../api"; // path adjust
 
 function Navbar({ items = [] }) {
   const [open, setOpen] = useState(false);
@@ -22,7 +23,7 @@ function Navbar({ items = [] }) {
 
   const checkAuth = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/me", {
+      const res = await fetch(`${API}/api/me`, {
         credentials: "include",
       });
       setIsLoggedIn(res.ok);
@@ -73,13 +74,12 @@ function Navbar({ items = [] }) {
   };
 
   const handleLogout = async () => {
-    await fetch("http://localhost:5000/api/logout", {
+    await fetch(`${API}/api/logout`, {
       method: "POST",
       credentials: "include",
     });
     window.location.reload();
   };
-
   return (
     <div className="card-nav-container">
       <nav ref={navRef} className={`card-nav ${open ? "open" : ""}`}>

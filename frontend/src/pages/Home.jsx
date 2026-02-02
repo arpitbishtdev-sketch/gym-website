@@ -6,6 +6,7 @@ import RotatingText from "../components/RotatingText";
 import WhatWeOffer from "./WhatWeOffer";
 import Membership from "./Membership";
 import gbImg from "../assets/gb.png";
+import { API } from "../api"; // path adjust
 
 function Home() {
   const [showChoice, setShowChoice] = useState(false);
@@ -19,7 +20,7 @@ function Home() {
 
   const checkAuth = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/me", {
+      const res = await fetch(`${API}/api/me`, {
         credentials: "include",
       });
 

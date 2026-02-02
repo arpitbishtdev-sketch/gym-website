@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
+import { API } from "../api"; // path adjust
 
 export default function ProtectedRoute({ children, adminOnly = false }) {
   const [loading, setLoading] = useState(true);
@@ -11,7 +12,7 @@ export default function ProtectedRoute({ children, adminOnly = false }) {
 
   const checkAuth = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/me", {
+      const res = await fetch(`${API}/api/me`, {
         credentials: "include",
       });
 

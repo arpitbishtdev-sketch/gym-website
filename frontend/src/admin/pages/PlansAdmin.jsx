@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import AdminLayout from "../layout/AdminLayout";
+import { API } from "../../api";
 
 export default function PlansAdmin() {
   const [plans, setPlans] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/plans")
+    fetch(`${API}/api/plans`, {
+      credentials: "include",
+    })
       .then((res) => res.json())
       .then((data) => setPlans(data));
   }, []);
@@ -17,9 +20,10 @@ export default function PlansAdmin() {
   };
 
   const handleSave = async (plan) => {
-    await fetch(`http://localhost:5000/api/plans/${plan._id}`, {
+    await fetch(`${API}/api/plans/${plan._id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
+      credentials: "include",
       body: JSON.stringify(plan),
     });
 

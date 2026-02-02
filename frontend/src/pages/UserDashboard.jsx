@@ -1,15 +1,14 @@
 import { useEffect, useState } from "react";
 import "./UserDashboard.css";
 import { toast } from "react-toastify";
+import { API } from "../api";
 
 export default function UserDashboard() {
   const [member, setMember] = useState(null);
   const [review, setReview] = useState("");
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
-
-    fetch("http://localhost:5000/api/my-membership", {
+    fetch(`${API}/api/my-membership`, {
       credentials: "include",
     })
       .then((res) => res.json())
@@ -17,22 +16,26 @@ export default function UserDashboard() {
   }, []);
 
   const submitReview = async () => {
-    const res = await fetch("http://localhost:5000/api/review", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      credentials: "include",
-      body: JSON.stringify({ review }),
-    });
+    try {
+      const res = await fetch(`${API}/api/review`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+        body: JSON.stringify({ review }),
+      });
 
-    const data = await res.json();
+      const data = await res.json();
 
-    if (!res.ok) {
-      toast.error(data.msg); // ❌ Only active members can submit review
-      return;
+      if (!res.ok) {
+        toast.error(data.msg);
+        return;
+      }
+
+      setReview("");
+      toast.success(data.msg);
+    } catch {
+      toast.error("Server error");
     }
-
-    setReview("");
-    toast.success(data.msg); // ✅ Review submitted
   };
 
   if (!member) return <div className="ud-loading">Loading...</div>;

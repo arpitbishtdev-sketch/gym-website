@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import AuthLayout from "../layout/AuthLayout";
 import { toast } from "react-toastify";
 import "./Login.css";
+import { API } from "../api"; // path adjust
 
 export default function Register() {
   const [step, setStep] = useState(1);
@@ -27,9 +28,10 @@ export default function Register() {
       return toast.error("Passwords do not match");
 
     try {
-      const res = await fetch("http://localhost:5000/api/register", {
+      const res = await fetch(`${API}/api/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
+        credentials: "include",
         body: JSON.stringify({ name, email, password }),
       });
 
@@ -41,7 +43,7 @@ export default function Register() {
       } else {
         toast.error(data.message);
       }
-    } catch (err) {
+    } catch {
       toast.error("Server error");
     }
   };

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import AuthLayout from "../layout/AuthLayout";
 import { toast } from "react-toastify";
 import "./Login.css";
+import { API } from "../api"; // path adjust
 
 export default function Login() {
   const [step, setStep] = useState(1);
@@ -14,10 +15,10 @@ export default function Login() {
     }
 
     try {
-      const res = await fetch("http://localhost:5000/api/login", {
+      const res = await fetch(`${API}/api/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        credentials: "include", // ✅ VERY IMPORTANT
+        credentials: "include",
         body: JSON.stringify({ email, password }),
       });
 
@@ -31,7 +32,7 @@ export default function Login() {
       } else {
         toast.error(data?.message || "Invalid credentials");
       }
-    } catch (err) {
+    } catch {
       toast.error("Server error");
     }
   };

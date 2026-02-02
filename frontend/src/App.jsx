@@ -26,6 +26,7 @@ function Layout() {
   const location = useLocation();
   const isAdminRoute = location.pathname.startsWith("/admin");
   const [showAuth, setShowAuth] = useState(false);
+  const API = import.meta.env.VITE_API_URL;
 
   // ✅ Check login from backend cookie
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -33,7 +34,7 @@ function Layout() {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/me", {
+        const res = await fetch(`${API}/api/me`, {
           credentials: "include",
         });
         setIsLoggedIn(res.ok);

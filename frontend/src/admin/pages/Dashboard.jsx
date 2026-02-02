@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useMemo } from "react";
 import AdminLayout from "../layout/AdminLayout";
+import { API } from "../api";
 import MembersGraph from "../components/MembersGraph";
 
 import {
@@ -17,7 +18,9 @@ export default function Dashboard() {
   const [earningFilter, setEarningFilter] = useState("total");
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/members")
+    fetch(`${API}/api/members`, {
+      credentials: "include",
+    })
       .then((res) => res.json())
       .then((data) => setMembers(data));
   }, []);

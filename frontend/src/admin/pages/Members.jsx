@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import AdminLayout from "../layout/AdminLayout";
+import { API } from "../api";
 
 export default function Members() {
   const [members, setMembers] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/members")
+    fetch(`${API}/api/members`, {
+      credentials: "include",
+    })
       .then((res) => res.json())
       .then((data) => setMembers(data));
   }, []);
