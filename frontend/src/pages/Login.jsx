@@ -26,6 +26,7 @@ export default function Login() {
       if (res.ok) {
         // ⭐ SAVE TOKEN HERE
         localStorage.setItem("token", data.token);
+        localStorage.setItem("role", data.role);
 
         toast.success("Login Successful ✅");
         setTimeout(() => {

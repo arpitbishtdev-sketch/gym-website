@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
-import { API } from "../api"; // path adjust
+import { API } from "../api";
 
 export default function ProtectedRoute({ children, adminOnly = false }) {
   const [loading, setLoading] = useState(true);
@@ -11,9 +11,20 @@ export default function ProtectedRoute({ children, adminOnly = false }) {
   }, []);
 
   const checkAuth = async () => {
+    const token = localStorage.getItem("token");
+    const role = localStorage.getItem("role");
+
+    if (!token) {
+      setIsAllowed(false);
+      setLoading(false);
+      return;
+    }
+
     try {
       const res = await fetch(`${API}/api/me`, {
-        credentials: "include",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       });
 
       if (!res.ok) {
@@ -22,9 +33,8 @@ export default function ProtectedRoute({ children, adminOnly = false }) {
         return;
       }
 
-      const data = await res.json();
-
-      if (adminOnly && data.role !== "admin") {
+      // ✅ ADMIN CHECK HERE
+      if (adminOnly && role !== "admin") {
         setIsAllowed(false);
       } else {
         setIsAllowed(true);

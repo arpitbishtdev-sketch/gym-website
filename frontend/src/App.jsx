@@ -33,15 +33,22 @@ function Layout() {
 
   useEffect(() => {
     const checkAuth = async () => {
+      const token = localStorage.getItem("token");
+      if (!token) return setIsLoggedIn(false);
+
       try {
         const res = await fetch(`${API}/api/me`, {
-          credentials: "include",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         });
+
         setIsLoggedIn(res.ok);
       } catch {
         setIsLoggedIn(false);
       }
     };
+
     checkAuth();
   }, []);
 
@@ -121,7 +128,6 @@ function Layout() {
           element={
             <ProtectedRoute adminOnly={true}>
               <Dashboard />
-              <logout />
             </ProtectedRoute>
           }
         />
