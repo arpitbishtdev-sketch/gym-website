@@ -17,9 +17,14 @@ const app = express();
 /* -------------------- Middlewares -------------------- */
 
 app.use(express.json());
-app.use(cors());
+const corsOptions = {
+  origin: "*", // abhi ke liye simple rakho
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+};
 
 app.use(cors(corsOptions));
+app.options("*", cors(corsOptions));
 
 /* -------------------- MongoDB Atlas Connection -------------------- */
 
@@ -92,8 +97,6 @@ app.post("/api/login", async (req, res) => {
       token,
       role: user.role,
     });
-
-    res.json({ role: user.role });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
