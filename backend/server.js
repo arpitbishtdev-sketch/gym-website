@@ -17,11 +17,12 @@ const app = express();
 /* -------------------- Middlewares -------------------- */
 
 app.use(express.json());
-const corsOptions = {
-  origin: "*", // abhi ke liye simple rakho
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-};
+app.use(
+  cors({
+    origin: "https://gym-website-1-ewue.onrender.com",
+    credentials: true,
+  }),
+);
 
 app.use(cors(corsOptions));
 
