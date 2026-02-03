@@ -24,8 +24,6 @@ app.use(
   }),
 );
 
-app.use(cors(corsOptions));
-
 /* -------------------- MongoDB Atlas Connection -------------------- */
 
 mongoose
