@@ -7,7 +7,7 @@ import "./Navbar.css";
 import { Link, useNavigate } from "react-router-dom";
 import { API, apiFetch } from "../api";
 
-function Navbar({ items = [] }) {
+function Navbar() {
   const [open, setOpen] = useState(false);
   const navRef = useRef(null);
   const cardsRef = useRef([]);
@@ -78,6 +78,38 @@ function Navbar({ items = [] }) {
 
     window.location.reload();
   };
+
+  // ✅ NAV ITEMS YAHI BANENGE (login ke basis pe)
+  const dynamicItems = [
+    {
+      label: "About",
+      bgColor: "#0b1220",
+      textColor: "white",
+      links: [
+        { label: "Home", href: "/" },
+        { label: "Plans", href: "/plans" },
+      ],
+    },
+    {
+      label: "Gallery",
+      bgColor: "#0b1220",
+      textColor: "white",
+      links: [
+        { label: "Gallery", href: "/gallery" },
+        { label: "Contact", href: "/contact" },
+      ],
+    },
+  ];
+
+  if (isLoggedIn) {
+    dynamicItems.push({
+      label: "User",
+      bgColor: "#0b1220",
+      textColor: "white",
+      links: [{ label: "Dashboard", href: "/dashboard" }],
+    });
+  }
+
   return (
     <div className="card-nav-container">
       <nav ref={navRef} className={`card-nav ${open ? "open" : ""}`}>
@@ -103,7 +135,7 @@ function Navbar({ items = [] }) {
         </div>
 
         <div className="card-nav-content">
-          {items.map((item, i) => (
+          {dynamicItems.map((item, i) => (
             <div
               key={i}
               className="nav-card"
