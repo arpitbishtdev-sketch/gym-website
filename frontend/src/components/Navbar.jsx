@@ -32,20 +32,44 @@ function Navbar() {
 
   // initial hidden state
   useLayoutEffect(() => {
-    gsap.set(navRef.current, { overflow: "hidden", maxHeight: 60 });
-
     gsap.set(cardsRef.current, { y: 50, opacity: 0 });
   }, []);
 
   const toggleMenu = () => {
-    setOpen(!open);
+    const nav = navRef.current;
 
-    gsap.to(cardsRef.current, {
-      y: !open ? 0 : 50,
-      opacity: !open ? 1 : 0,
-      duration: 0.35,
-      stagger: 0.08,
-    });
+    if (!open) {
+      nav.style.height = "auto";
+      const fullHeight = nav.scrollHeight;
+      nav.style.height = "60px";
+
+      gsap.to(nav, {
+        height: fullHeight,
+        duration: 0.45,
+        ease: "power3.out",
+      });
+
+      gsap.to(cardsRef.current, {
+        y: 0,
+        opacity: 1,
+        duration: 0.4,
+        stagger: 0.1,
+      });
+    } else {
+      gsap.to(nav, {
+        height: 60,
+        duration: 0.35,
+        ease: "power3.in",
+      });
+
+      gsap.to(cardsRef.current, {
+        y: 50,
+        opacity: 0,
+        duration: 0.25,
+      });
+    }
+
+    setOpen(!open);
   };
 
   const handleJoinClick = () => {
