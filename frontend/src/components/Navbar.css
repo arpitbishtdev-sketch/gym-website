@@ -11,7 +11,7 @@
 /* 🔥 GLASS NAVBAR */
 .card-nav {
   height: 60px; /* always closed by default */
-  overflow: hidden; /* IMPORTANT */
+  overflow: visible; /* IMPORTANT */
   position: relative;
   border-radius: 18px;
 
