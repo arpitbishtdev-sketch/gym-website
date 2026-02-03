@@ -10,15 +10,10 @@
 
 /* 🔥 GLASS NAVBAR */
 .card-nav {
-  display: block;
-  min-height: 60px; /* instead of fixed height */
-  height: auto; /* allow growth */
-  overflow: visible;
-  padding: 0;
-  border-radius: 18px;
+  height: 60px; /* always closed by default */
+  overflow: hidden; /* IMPORTANT */
   position: relative;
-
-  will-change: height;
+  border-radius: 18px;
 
   backdrop-filter: blur(18px);
   background: rgba(255, 255, 255, 0.35);
@@ -88,14 +83,14 @@
 }
 
 .card-nav-content {
+  position: absolute;
+  top: 60px; /* starts below top bar */
+  left: 0;
+  right: 0;
   padding: 0.6rem;
+
   display: flex;
-  align-items: stretch;
   gap: 12px;
-  position: relative;
-  margin-top: 60px;
-  visibility: hidden;
-  pointer-events: none;
 }
 
 .card-nav.open .card-nav-content {

@@ -32,7 +32,8 @@ function Navbar() {
 
   // initial hidden state
   useLayoutEffect(() => {
-    gsap.set(cardsRef.current, { y: 50, opacity: 0 });
+    gsap.set(navRef.current, { height: 60, overflow: "hidden" });
+    gsap.set(cardsRef.current, { y: 40, opacity: 0 });
   }, []);
 
   const toggleMenu = () => {
@@ -63,7 +64,7 @@ function Navbar() {
       });
 
       gsap.to(cardsRef.current, {
-        y: 50,
+        y: 40,
         opacity: 0,
         duration: 0.25,
       });
