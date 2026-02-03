@@ -37,33 +37,15 @@ function Navbar() {
     gsap.set(cardsRef.current, { y: 50, opacity: 0 });
   }, []);
 
-  // 🔥 Dynamic height fix
   const toggleMenu = () => {
-    const nav = navRef.current;
-
-    if (!open) {
-      nav.style.height = "auto";
-      const fullHeight = nav.scrollHeight;
-      nav.style.height = "60px";
-
-      gsap.to(nav, { height: fullHeight, duration: 0.4 });
-
-      gsap.to(cardsRef.current, {
-        y: 0,
-        opacity: 1,
-        duration: 0.4,
-        stagger: 0.1,
-      });
-    } else {
-      gsap.to(nav, { height: 60, duration: 0.4 });
-      gsap.to(cardsRef.current, {
-        y: 50,
-        opacity: 0,
-        duration: 0.2,
-      });
-    }
-
     setOpen(!open);
+
+    gsap.to(cardsRef.current, {
+      y: !open ? 0 : 50,
+      opacity: !open ? 1 : 0,
+      duration: 0.35,
+      stagger: 0.08,
+    });
   };
 
   const handleJoinClick = () => {

@@ -11,11 +11,12 @@
 /* 🔥 GLASS NAVBAR */
 .card-nav {
   display: block;
-  height: 60px;
+  min-height: 60px;
+  height: auto;
   padding: 0;
   border-radius: 18px;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   will-change: height;
 
   backdrop-filter: blur(18px);
@@ -25,14 +26,11 @@
 }
 
 .card-nav-top {
-  position: absolute;
-  inset: 0 0 auto 0;
   height: 60px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0.5rem 0.8rem 0.55rem 1.2rem;
-  z-index: 2;
 }
 
 /* 🔥 Hamburger subtle */
@@ -89,10 +87,10 @@
 }
 
 .card-nav-content {
-  position: absolute;
+  position: relative;
   left: 0;
   right: 0;
-  top: 60px;
+
   bottom: 0;
   padding: 0.6rem;
   display: flex;
@@ -106,6 +104,10 @@
 .card-nav.open .card-nav-content {
   visibility: visible;
   pointer-events: auto;
+}
+
+.card-nav.open {
+  padding-bottom: 20px;
 }
 
 /* 🔥 Floating cards look */
