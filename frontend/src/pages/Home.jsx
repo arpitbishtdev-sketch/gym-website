@@ -13,15 +13,15 @@ function Home() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
 
-  // ✅ CHECK LOGIN FROM SERVER COOKIE
-  useEffect(() => {
-    checkAuth();
-  }, []);
-
   const checkAuth = async () => {
+    const token = localStorage.getItem("token");
+    if (!token) return setIsLoggedIn(false);
+
     try {
       const res = await fetch(`${API}/api/me`, {
-        credentials: "include",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       });
 
       setIsLoggedIn(res.ok);
@@ -29,6 +29,15 @@ function Home() {
       setIsLoggedIn(false);
     }
   };
+
+  useEffect(() => {
+    checkAuth();
+
+    const onFocus = () => checkAuth(); // jab page pe wapas aao
+    window.addEventListener("focus", onFocus);
+
+    return () => window.removeEventListener("focus", onFocus);
+  }, []);
 
   const handleHeroButtonClick = () => {
     if (!isLoggedIn) {

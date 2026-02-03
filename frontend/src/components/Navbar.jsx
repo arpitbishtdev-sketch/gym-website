@@ -22,8 +22,16 @@ function Navbar() {
   }, []);
 
   const checkAuth = async () => {
+    const token = localStorage.getItem("token");
+    if (!token) return setIsLoggedIn(false);
+
     try {
-      const res = await apiFetch(`${API}/api/me`);
+      const res = await fetch(`${API}/api/me`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
       setIsLoggedIn(res.ok);
     } catch {
       setIsLoggedIn(false);
@@ -78,12 +86,9 @@ function Navbar() {
     else navigate("/join");
   };
 
-  const handleLogout = async () => {
-    await apiFetch(`${API}/api/logout`, {
-      method: "POST",
-    });
-
-    window.location.reload();
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    window.location.href = "/";
   };
 
   // ✅ NAV ITEMS YAHI BANENGE (login ke basis pe)
