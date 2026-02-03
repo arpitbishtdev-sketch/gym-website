@@ -21,7 +21,7 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "https://gym-website-1.eyce.onrender.com",
     credentials: true,
   }),
 );
@@ -93,8 +93,8 @@ app.post("/api/login", async (req, res) => {
 
     res.cookie("token", token, {
       httpOnly: true,
-      sameSite: "lax",
-      secure: false, // change to true on Render
+      secure: true,
+      sameSite: "none",
     });
 
     res.json({ role: user.role });
