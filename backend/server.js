@@ -21,10 +21,11 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(
   cors({
-    origin: "https://gym-website-1.eyce.onrender.com",
+    origin: "https://gym-website-1-ewue.onrender.com",
     credentials: true,
   }),
 );
+app.options("*", cors());
 
 /* -------------------- MongoDB Atlas Connection -------------------- */
 
