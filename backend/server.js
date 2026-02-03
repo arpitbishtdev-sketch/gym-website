@@ -3,7 +3,6 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const cookieParser = require("cookie-parser");
 
 const Plan = require("./models/Plan");
 const Member = require("./models/Member");
@@ -17,14 +16,8 @@ const app = express();
 
 /* -------------------- Middlewares -------------------- */
 
-app.use(cookieParser());
 app.use(express.json());
-const corsOptions = {
-  origin: "https://gym-website-1-ewue.onrender.com",
-  credentials: true,
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type"],
-};
+app.use(cors());
 
 app.use(cors(corsOptions));
 
@@ -45,8 +38,10 @@ const createToken = (user) => {
 
 const authUser = (req, res, next) => {
   try {
-    const token = req.cookies.token;
-    if (!token) return res.status(401).json({ msg: "Not logged in" });
+    const authHeader = req.headers.authorization;
+    if (!authHeader) return res.status(401).json({ msg: "No token" });
+
+    const token = authHeader.split(" ")[1];
 
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     req.userId = decoded.id;
@@ -93,10 +88,9 @@ app.post("/api/login", async (req, res) => {
 
     const token = createToken(user);
 
-    res.cookie("token", token, {
-      httpOnly: true,
-      secure: true,
-      sameSite: "none",
+    res.json({
+      token,
+      role: user.role,
     });
 
     res.json({ role: user.role });
@@ -108,8 +102,10 @@ app.post("/api/login", async (req, res) => {
 // Check auth from cookie
 app.get("/api/me", async (req, res) => {
   try {
-    const token = req.cookies.token;
-    if (!token) return res.status(401).json({ msg: "Not logged in" });
+    const authHeader = req.headers.authorization;
+    if (!authHeader) return res.status(401).json({ msg: "No token" });
+
+    const token = authHeader.split(" ")[1];
 
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
@@ -124,10 +120,11 @@ app.get("/api/me", async (req, res) => {
 
 // Check auth (ProtectedRoute will use)
 app.get("/api/check-auth", (req, res) => {
-  const token = req.cookies.token;
-  if (!token) return res.status(401).json({ ok: false });
+  const authHeader = req.headers.authorization;
+  if (!authHeader) return res.status(401).json({ ok: false });
 
   try {
+    const token = authHeader.split(" ")[1];
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     res.json({ ok: true, role: decoded.role });
   } catch {
@@ -137,11 +134,6 @@ app.get("/api/check-auth", (req, res) => {
 
 // Logout
 app.post("/api/logout", (req, res) => {
-  res.clearCookie("token", {
-    httpOnly: true,
-    secure: true,
-    sameSite: "none",
-  });
   res.json({ msg: "Logged out" });
 });
 

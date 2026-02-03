@@ -18,13 +18,15 @@ export default function Login() {
       const res = await fetch(`${API}/api/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        credentials: "include",
         body: JSON.stringify({ email, password }),
       });
 
       const data = await res.json();
 
       if (res.ok) {
+        // ⭐ SAVE TOKEN HERE
+        localStorage.setItem("token", data.token);
+
         toast.success("Login Successful ✅");
         setTimeout(() => {
           window.location.href = "/";
