@@ -19,13 +19,15 @@ const app = express();
 
 app.use(cookieParser());
 app.use(express.json());
-app.use(
-  cors({
-    origin: "https://gym-website-1-ewue.onrender.com",
-    credentials: true,
-  }),
-);
-app.options("*", cors());
+const corsOptions = {
+  origin: "https://gym-website-1-ewue.onrender.com",
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type"],
+};
+
+app.use(cors(corsOptions));
+app.options("*", cors(corsOptions));
 
 /* -------------------- MongoDB Atlas Connection -------------------- */
 
@@ -136,7 +138,11 @@ app.get("/api/check-auth", (req, res) => {
 
 // Logout
 app.post("/api/logout", (req, res) => {
-  res.clearCookie("token");
+  res.clearCookie("token", {
+    httpOnly: true,
+    secure: true,
+    sameSite: "none",
+  });
   res.json({ msg: "Logged out" });
 });
 
@@ -213,7 +219,7 @@ app.get("/api/members", async (req, res) => {
 // Add member
 app.post("/api/members", authUser, async (req, res) => {
   try {
-    const { name, gender, gym, planDays, amount } = req.body;
+    const { name, gender, gym, planDuration, planDays, amount } = req.body;
 
     const newMember = new Member({
       name,
