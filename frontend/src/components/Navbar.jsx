@@ -5,7 +5,7 @@ import LoginModal from "./LoginModal";
 import { GoArrowUpRight } from "react-icons/go";
 import "./Navbar.css";
 import { Link, useNavigate } from "react-router-dom";
-import { API } from "../api"; // path adjust
+import { API, apiFetch } from "../api";
 
 function Navbar({ items = [] }) {
   const [open, setOpen] = useState(false);
@@ -23,9 +23,7 @@ function Navbar({ items = [] }) {
 
   const checkAuth = async () => {
     try {
-      const res = await fetch(`${API}/api/me`, {
-        credentials: "include",
-      });
+      const res = await apiFetch(`${API}/api/me`);
       setIsLoggedIn(res.ok);
     } catch {
       setIsLoggedIn(false);
@@ -74,10 +72,10 @@ function Navbar({ items = [] }) {
   };
 
   const handleLogout = async () => {
-    await fetch(`${API}/api/logout`, {
+    await apiFetch(`${API}/api/logout`, {
       method: "POST",
-      credentials: "include",
     });
+
     window.location.reload();
   };
   return (
