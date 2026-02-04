@@ -1,11 +1,7 @@
-/* ===== BASE LAYOUT ===== */
+/* ===== BASE LAYOUT (FIXED) ===== */
 
 .home {
   width: 100%;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 /* ===== HERO ===== */
@@ -83,25 +79,23 @@
   }
 }
 
-/* ================= MOBILE FIX (IMPORTANT PART) ================= */
+/* ================= MOBILE FIX (MAIN FIX) ================= */
 
 @media (max-width: 768px) {
-  .home {
-    padding: 0;
-    min-height: auto; /* Change from 100vh to auto to prevent extra space */
-  }
-
   .hero {
     margin: 0;
     border-radius: 0;
+    width: 100%;
     max-width: 100%;
-    width: 100%; /* Ensure it takes full width */
+
+    /* ⭐ THIS REMOVES GAP */
     min-height: 100svh;
-    height: auto;
+
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centers content vertically */
-    padding: 24px; /* Adjusted padding */
+    justify-content: center;
+
+    padding: 40px 24px;
   }
 
   .hero-title {
