@@ -1,54 +1,64 @@
 section {
   margin: 0;
+
   padding: 0;
 }
+
 /* ===== BASE LAYOUT (REAL FIX) ===== */
 
 .home {
   width: 100%;
-  padding-top: 0; /* Changed from 110px to 0 */
-  margin-top: 0;
+
+  padding-top: 110px;
 }
 
 .hero {
-  /* This ensures the image starts from the very top of the screen */
   min-height: 100vh;
+
   display: flex;
+
   flex-direction: column;
+
   justify-content: center;
-
-  /* Add the padding here instead of .home so the image stays behind the text */
-  padding-top: 110px;
-  padding-left: 20px; /* Adjust as needed for your layout */
-  padding-right: 20px;
-
-  box-sizing: border-box; /* Ensures padding doesn't break the height */
 }
 
 /* ===== TEXT ===== */
 
 .hero-title {
   font-size: 64px;
+
   font-weight: 800;
+
   display: flex;
+
   flex-wrap: wrap;
+
   align-items: center;
+
   gap: 12px;
+
   line-height: 1.1;
 }
 
 .rotate-box {
   color: #1cdb2c;
+
   padding: 8px 18px;
+
   border-radius: 10px;
+
   display: inline-flex;
+
   align-items: center;
 }
 
 .hero p {
   font-size: 20px;
+
   margin: 25px 0 40px;
+
   line-height: 1.6;
+
   max-width: 600px;
 }
 
@@ -56,13 +66,21 @@ section {
 
 .join-btn {
   padding: 14px 36px;
+
   font-size: 18px;
+
   border-radius: 10px;
+
   border: none;
+
   background-color: #1cdb2c;
+
   color: white;
+
   cursor: pointer;
+
   font-weight: 600;
+
   transition: 0.3s ease;
 }
 
@@ -90,26 +108,34 @@ section {
 
 @media (max-width: 768px) {
   .home {
-    padding-top: 0;
+    padding-top: 80px; /* navbar height */
   }
+
   .hero {
-    padding-top: 80px; /* Matches your navbar height on mobile */
-    padding-bottom: 50px;
-    min-height: auto; /* Optional: allows hero to shrink if content is small */
+    margin: 0;
+
+    border-radius: 0;
+
+    padding: 50px 24px;
   }
+
   .hero-title {
     font-size: 36px;
+
     gap: 6px;
   }
 
   .hero p {
     font-size: 15px;
+
     max-width: 100%;
   }
 
   .join-btn {
     width: 100%;
+
     padding: 16px;
+
     font-size: 16px;
   }
 }
