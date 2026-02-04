@@ -1,10 +1,8 @@
-/* ===== BASE LAYOUT (FIXED) ===== */
+/* ===== BASE LAYOUT ===== */
 
 .home {
   width: 100%;
-  background: transparent; /* or same as page bg */
-  margin: 0;
-  padding: 0;
+  padding-top: 110px; /* space for navbar */
 }
 
 /* ===== HERO ===== */
@@ -12,7 +10,7 @@
 .hero {
   width: 100%;
   max-width: 1300px;
-  margin: 110px auto 0;
+  margin: 0 auto;
   border-radius: 24px;
   padding: 140px 80px;
   color: white;
@@ -82,24 +80,15 @@
   }
 }
 
-/* ================= MOBILE FIX (MAIN FIX) ================= */
+/* ================= MOBILE ================= */
 
 @media (max-width: 768px) {
-  .home {
-    display: block; /*   stop vertical centering */
-    min-height: auto; /*   remove forced height */
-  }
-
   .hero {
-    margin-top: 110px;
-    margin: 110px 0 0;
     max-width: 100%;
     border-radius: 0;
 
-    min-height: calc(100dvh - 110px);
-    min-height: calc(100svh - 110px);
-
     padding: 60px 24px;
+    min-height: calc(100vh - 110px);
 
     display: flex;
     flex-direction: column;
