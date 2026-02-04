@@ -1,6 +1,4 @@
 .card-nav-container {
-  position: absolute; /* 🔥 main fix */
-  top: 20px;
   position: fixed;
   top: 12px;
   left: 50%;
