@@ -54,9 +54,13 @@ function Home() {
           className="hero"
           style={{
             backgroundImage: `url(${gbImg})`,
+
             backgroundSize: "cover",
+
             backgroundPosition: "center",
+
             position: "relative",
+
             overflow: "hidden",
           }}
         >
