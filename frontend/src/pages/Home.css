@@ -1,24 +1,30 @@
+/* kill default section gaps */
 section {
   margin: 0;
-
   padding: 0;
 }
 
-/* ===== BASE LAYOUT (REAL FIX) ===== */
-
+/* ===== HOME ===== */
 .home {
   width: 100%;
-
-  padding-top: 110px;
 }
 
+/* ===== HERO (real fix) ===== */
 .hero {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+
+  /* ⭐ THIS WAS THE REAL ISSUE */
   min-height: 100vh;
 
+  border-radius: 24px;
+  padding: 140px 80px;
+  position: relative;
+  overflow: hidden;
+
   display: flex;
-
   flex-direction: column;
-
   justify-content: center;
 }
 
@@ -26,39 +32,26 @@ section {
 
 .hero-title {
   font-size: 64px;
-
   font-weight: 800;
-
   display: flex;
-
   flex-wrap: wrap;
-
   align-items: center;
-
   gap: 12px;
-
   line-height: 1.1;
 }
 
 .rotate-box {
   color: #1cdb2c;
-
   padding: 8px 18px;
-
   border-radius: 10px;
-
   display: inline-flex;
-
   align-items: center;
 }
 
 .hero p {
   font-size: 20px;
-
   margin: 25px 0 40px;
-
   line-height: 1.6;
-
   max-width: 600px;
 }
 
@@ -66,21 +59,13 @@ section {
 
 .join-btn {
   padding: 14px 36px;
-
   font-size: 18px;
-
   border-radius: 10px;
-
   border: none;
-
   background-color: #1cdb2c;
-
   color: white;
-
   cursor: pointer;
-
   font-weight: 600;
-
   transition: 0.3s ease;
 }
 
@@ -88,59 +73,27 @@ section {
   transform: translateY(-4px);
 }
 
-/* ================= TABLET ================= */
-
-@media (max-width: 1024px) {
-  .hero {
-    padding: 100px 50px;
-  }
-
-  .hero-title {
-    font-size: 48px;
-  }
-
-  .hero p {
-    font-size: 18px;
-  }
-}
-
-/* ================= MOBILE (REAL CLEAN FIX) ================= */
+/* ===== MOBILE ===== */
 
 @media (max-width: 768px) {
-  .home {
-    padding-top: 80px; /* navbar height */
-  }
-
   .hero {
-    margin: 0;
-
     border-radius: 0;
-
     padding: 50px 24px;
   }
 
   .hero-title {
     font-size: 36px;
-
-    gap: 6px;
   }
 
   .hero p {
     font-size: 15px;
-
-    max-width: 100%;
   }
 
   .join-btn {
     width: 100%;
-
     padding: 16px;
-
-    font-size: 16px;
   }
 }
-
-/* ================= VERY SMALL ================= */
 
 @media (max-width: 420px) {
   .hero-title {
