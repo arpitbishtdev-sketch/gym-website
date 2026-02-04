@@ -1,8 +1,9 @@
-/* ===== BASE LAYOUT ===== */
+/* ===== BASE LAYOUT (REAL FIX) ===== */
 
 .home {
   width: 100%;
-  padding-top: 110px; /* space for navbar */
+  display: block; /* ❌ remove flex */
+  min-height: auto; /* ❌ remove 100vh */
 }
 
 /* ===== HERO ===== */
@@ -10,7 +11,10 @@
 .hero {
   width: 100%;
   max-width: 1300px;
-  margin: 0 auto;
+
+  /* ✅ space below navbar */
+  margin: 110px auto 0;
+
   border-radius: 24px;
   padding: 140px 80px;
   color: white;
@@ -80,22 +84,13 @@
   }
 }
 
-/* ================= MOBILE ================= */
+/* ================= MOBILE (REAL CLEAN FIX) ================= */
 
 @media (max-width: 768px) {
   .hero {
-    max-width: 100%;
+    margin: 80px 0 0; /* space from navbar */
     border-radius: 0;
-
-    padding: 60px 24px;
-    min-height: calc(100vh - 110px);
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    background-size: cover;
-    background-position: center;
+    padding: 50px 24px;
   }
 
   .hero-title {
