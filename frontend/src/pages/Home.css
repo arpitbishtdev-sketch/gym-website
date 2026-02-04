@@ -6,14 +6,23 @@ section {
 
 .home {
   width: 100%;
-  padding-top: 110px;
+  padding-top: 0; /* Changed from 110px to 0 */
+  margin-top: 0;
 }
 
 .hero {
+  /* This ensures the image starts from the very top of the screen */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  /* Add the padding here instead of .home so the image stays behind the text */
+  padding-top: 110px;
+  padding-left: 20px; /* Adjust as needed for your layout */
+  padding-right: 20px;
+
+  box-sizing: border-box; /* Ensures padding doesn't break the height */
 }
 
 /* ===== TEXT ===== */
@@ -81,14 +90,13 @@ section {
 
 @media (max-width: 768px) {
   .home {
-    padding-top: 80px; /* navbar height */
+    padding-top: 0;
   }
   .hero {
-    margin: 0;
-    border-radius: 0;
-    padding: 50px 24px;
+    padding-top: 80px; /* Matches your navbar height on mobile */
+    padding-bottom: 50px;
+    min-height: auto; /* Optional: allows hero to shrink if content is small */
   }
-
   .hero-title {
     font-size: 36px;
     gap: 6px;

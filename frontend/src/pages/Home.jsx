@@ -56,8 +56,10 @@ function Home() {
             backgroundImage: `url(${gbImg})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
+            backgroundRepeat: "no-repeat", // Added to prevent tiling
             position: "relative",
             overflow: "hidden",
+            width: "100%",
           }}
         >
           <div
