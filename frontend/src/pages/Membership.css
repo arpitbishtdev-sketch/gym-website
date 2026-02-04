@@ -97,17 +97,17 @@
   }
 
   .membership-right img {
-    height: 260px;
-    width: 260px;
+    height: 360px;
+    width: 360px;
     object-fit: contain;
-    transform: none;
   }
 }
 
 @media (max-width: 600px) {
   .membership-right img {
-    height: 220px;
-    width: 220px;
+    height: 300px;
+    width: 300px;
+    object-fit: contain;
   }
 }
 
@@ -117,7 +117,8 @@
   }
 
   .membership-right img {
-    height: 190px;
-    width: 190px;
+    height: 260px;
+    width: 260px;
+    object-fit: contain;
   }
 }
