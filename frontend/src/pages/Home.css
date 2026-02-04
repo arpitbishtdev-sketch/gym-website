@@ -1,9 +1,12 @@
+section {
+  display: block;
+}
+
 /* ===== BASE LAYOUT (REAL FIX) ===== */
 
 .home {
   width: 100%;
-  display: block; /* ❌ remove flex */
-  min-height: auto; /* ❌ remove 100vh */
+  margin-top: 90px; /* space below navbar */
 }
 
 /* ===== HERO ===== */
@@ -13,8 +16,8 @@
   max-width: 1300px;
 
   /* ✅ space below navbar */
-  margin: 110px auto 0;
-
+  margin: 20px auto 0;
+  display: block;
   border-radius: 24px;
   padding: 140px 80px;
   color: white;
