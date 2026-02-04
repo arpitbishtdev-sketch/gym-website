@@ -13,6 +13,8 @@ const Contact = require("./models/Contact");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const nodemailer = require("nodemailer");
+const axios = require("axios"); // ⬅️ add at top
+
 const app = express();
 
 const transporter = nodemailer.createTransport({
@@ -42,36 +44,69 @@ app.post("/api/contact", async (req, res) => {
 
     await Contact.create({ name, email, phone, message });
 
-    // 1️⃣ Email to owner
-    await transporter.sendMail({
-      from: process.env.OWNER_EMAIL,
-      to: process.env.OWNER_EMAIL,
-      subject: "New Gym Enquiry",
-      text: `
-New Enquiry Received:
+    // 1️⃣ Mail to OWNER
+    await axios.post(
+      "https://api.brevo.com/v3/smtp/email",
+      {
+        sender: {
+          name: "Iron Paradise Gym",
+          email: process.env.OWNER_EMAIL,
+        },
+        to: [
+          {
+            email: process.env.OWNER_EMAIL,
+            name: "Gym Owner",
+          },
+        ],
+        subject: "New Gym Enquiry Received",
+        htmlContent: `
+          <h3>New Enquiry</h3>
+          <p><b>Name:</b> ${name}</p>
+          <p><b>Email:</b> ${email}</p>
+          <p><b>Phone:</b> ${phone}</p>
+          <p><b>Message:</b> ${message}</p>
+        `,
+      },
+      {
+        headers: {
+          "api-key": process.env.BREVO_API_KEY,
+          "Content-Type": "application/json",
+        },
+      },
+    );
 
-Name: ${name}
-Email: ${email}
-Phone: ${phone}
-Message: ${message}
-      `,
-    });
+    // 2️⃣ Auto reply to CLIENT
+    await axios.post(
+      "https://api.brevo.com/v3/smtp/email",
+      {
+        sender: {
+          name: "Iron Paradise Gym",
+          email: process.env.OWNER_EMAIL,
+        },
+        to: [
+          {
+            email: email,
+            name: name,
+          },
+        ],
+        subject: "Thanks for contacting Iron Paradise Gym",
+        htmlContent: `
+          <p>Hi ${name},</p>
+          <p>We received your enquiry. Our team will contact you shortly.</p>
+          <p>– Iron Paradise Gym</p>
+        `,
+      },
+      {
+        headers: {
+          "api-key": process.env.BREVO_API_KEY,
+          "Content-Type": "application/json",
+        },
+      },
+    );
 
-    // 2️⃣ Auto reply to client
-    await transporter.sendMail({
-      from: process.env.OWNER_EMAIL,
-      to: email,
-      subject: "Thanks for contacting us",
-      text: `Hi ${name},
-
-Thank you for contacting us. We received your enquiry and will contact you shortly.
-
-- Gym Team`,
-    });
-
-    res.status(200).json({ success: true });
+    res.json({ success: true });
   } catch (err) {
-    console.log(err);
+    console.log(err.response?.data || err.message);
     res.status(500).json({ success: false });
   }
 });
