@@ -1,4 +1,4 @@
-/* kill default section gaps */
+/* remove default gaps */
 section {
   margin: 0;
   padding: 0;
@@ -7,10 +7,10 @@ section {
 /* ===== HOME ===== */
 .home {
   width: 100%;
-  padding-top: 110px;
+  padding-top: 110px; /* navbar space */
 }
 
-/* ===== HERO (real fix) ===== */
+/* ===== HERO ===== */
 .hero {
   width: 100%;
   max-width: 1300px;
@@ -28,7 +28,6 @@ section {
 }
 
 /* ===== TEXT ===== */
-
 .hero-title {
   font-size: 64px;
   font-weight: 800;
@@ -37,9 +36,6 @@ section {
   align-items: center;
   gap: 12px;
   line-height: 1.1;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  white-space: normal;
 }
 
 .rotate-box {
@@ -57,13 +53,7 @@ section {
   max-width: 600px;
 }
 
-.rotate-box {
-  display: inline-block;
-  max-width: 100%;
-}
-
 /* ===== BUTTON ===== */
-
 .join-btn {
   padding: 14px 36px;
   font-size: 18px;
@@ -80,13 +70,27 @@ section {
   transform: translateY(-4px);
 }
 
-/* ===== MOBILE ===== */
+/* ===== TABLET ===== */
+@media (max-width: 1024px) {
+  .hero {
+    padding: 100px 50px;
+  }
 
+  .hero-title {
+    font-size: 48px;
+  }
+
+  .hero p {
+    font-size: 18px;
+  }
+}
+
+/* ===== MOBILE ===== */
 @media (max-width: 768px) {
   .hero {
-    border-radius: 10px;
-    padding: 0px 10px; /* give breathing space */
-    min-height: 10vh;
+    min-height: 50vh; /* full screen only mobile */
+    border-radius: 0;
+    padding: 0px 24px;
   }
 
   .hero-title {
@@ -95,18 +99,17 @@ section {
 
   .hero p {
     font-size: 15px;
+    max-width: 100%;
   }
 
   .join-btn {
     width: 100%;
     padding: 16px;
-  }
-  .rotate-box {
-    display: block; /* forces next line */
-    margin-top: 6px;
+    font-size: 16px;
   }
 }
 
+/* ===== VERY SMALL ===== */
 @media (max-width: 420px) {
   .hero-title {
     font-size: 28px;

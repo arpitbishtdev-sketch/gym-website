@@ -1,5 +1,5 @@
 .card-nav-container {
-  position: absolute;
+  position: fixed;
   top: 12px;
   left: 50%;
   transform: translateX(-50%);
@@ -11,7 +11,7 @@
 /* 🔥 GLASS NAVBAR */
 .card-nav {
   height: 60px; /* always closed by default */
-  overflow: visible; /* IMPORTANT */
+  overflow: hidden; /* IMPORTANT */
   position: relative;
   border-radius: 18px;
 
@@ -49,11 +49,18 @@
 }
 
 /* 🔥 Brand glow */
-.logo-container {
+/* .logo-container {
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(0%, -50%);
+  transform: translate(-50%, -50%);
+} */
+.logo-container {
+  position: absolute;
+  left: 50%;
+  top: 18px; /* fixed from top */
+  transform: translateX(-80%);
+  /* transform: translateY(-50%); */
 }
 
 .logo-container h2 {

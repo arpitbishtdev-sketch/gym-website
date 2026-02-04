@@ -40,7 +40,7 @@ function Navbar() {
 
   // initial hidden state
   useLayoutEffect(() => {
-    gsap.set(navRef.current, { height: 60, overflow: "hidden" });
+    gsap.set(navRef.current, { height: 60 });
     gsap.set(cardsRef.current, { y: 40, opacity: 0 });
   }, []);
 
