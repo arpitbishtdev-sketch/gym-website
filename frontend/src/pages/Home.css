@@ -2,6 +2,9 @@
 
 .home {
   width: 100%;
+  background: transparent; /* or same as page bg */
+  margin: 0;
+  padding: 0;
 }
 
 /* ===== HERO ===== */
@@ -89,11 +92,12 @@
 
   .hero {
     margin-top: 110px;
+    margin: 110px 0 0;
+    max-width: 100%;
     border-radius: 0;
 
-    /* REAL viewport height fix */
     min-height: calc(100dvh - 110px);
-    min-height: calc(100svh - 110px); /* fallback */
+    min-height: calc(100svh - 110px);
 
     padding: 60px 24px;
 
