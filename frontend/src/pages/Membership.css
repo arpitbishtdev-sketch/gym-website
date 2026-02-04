@@ -68,7 +68,7 @@
   }
 
   .membership-card {
-    grid-template-columns: 1fr; /* stack */
+    grid-template-columns: 1fr;
     padding: 30px 22px;
     text-align: center;
   }
@@ -91,18 +91,27 @@
   }
 
   .membership-right img {
-    transform: scale(1); /* remove zoom on mobile */
-    height: 220px;
+    height: 260px;
+    width: 260px;
+    object-fit: contain;
+    transform: none;
   }
 }
 
-/* extra small phones */
+@media (max-width: 600px) {
+  .membership-right img {
+    height: 220px;
+    width: 220px;
+  }
+}
+
 @media (max-width: 480px) {
   .membership-left h1 {
     font-size: 28px;
   }
 
   .membership-right img {
-    height: 180px;
+    height: 190px;
+    width: 190px;
   }
 }
