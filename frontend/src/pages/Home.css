@@ -82,19 +82,14 @@
 /* ================= MOBILE FIX (MAIN FIX) ================= */
 
 @media (max-width: 768px) {
+  .home {
+    display: block; /* ⭐ stop vertical centering */
+    min-height: auto; /* ⭐ remove forced height */
+  }
   .hero {
-    margin: 0;
+    margin: 0; /* ⭐ real fix */
     border-radius: 0;
-    width: 100%;
-    max-width: 100%;
-
-    /* ⭐ THIS REMOVES GAP */
     min-height: 100svh;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
     padding: 40px 24px;
   }
 
