@@ -96,7 +96,8 @@
     border-radius: 0;
     max-width: 100%;
     width: 100%; /* Ensure it takes full width */
-    height: 100vh; /* This makes the hero fill the entire mobile screen */
+    min-height: 100svh;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center; /* Centers content vertically */
