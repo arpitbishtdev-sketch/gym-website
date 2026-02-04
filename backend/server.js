@@ -14,7 +14,6 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const nodemailer = require("nodemailer");
 const axios = require("axios"); // ⬅️ add at top
-
 const app = express();
 
 const transporter = nodemailer.createTransport({

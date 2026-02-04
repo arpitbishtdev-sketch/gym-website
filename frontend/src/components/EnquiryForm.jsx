@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { API } from "../api";
+import { toast } from "react-toastify";
 
 export default function EnquiryForm() {
   const [form, setForm] = useState({
@@ -16,10 +17,20 @@ export default function EnquiryForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await axios.post(`${API}/api/contact`, form);
+    try {
+      await axios.post(`${API}/api/contact`, form);
 
-    alert("Enquiry sent!");
-    setForm({ name: "", email: "", phone: "", message: "" });
+      toast.success("Enquiry sent! We will contact you soon 💪");
+
+      setForm({
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+      });
+    } catch (err) {
+      toast.error("Something went wrong. Please try again.");
+    }
   };
 
   return (
