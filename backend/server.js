@@ -8,21 +8,73 @@ const Plan = require("./models/Plan");
 const Member = require("./models/Member");
 const User = require("./models/User");
 const Review = require("./models/Review");
+const Contact = require("./models/Contact");
 
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-
+const nodemailer = require("nodemailer");
 const app = express();
+
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: process.env.OWNER_EMAIL,
+    pass: process.env.APP_PASSWORD,
+  },
+});
 
 /* -------------------- Middlewares -------------------- */
 
 app.use(express.json());
 app.use(
   cors({
-    origin: "https://gym-website-1-ewue.onrender.com",
+    origin: [
+      "http://localhost:5173",
+      "https://gym-website-1-ewue.onrender.com",
+    ],
     credentials: true,
   }),
 );
+
+app.post("/api/contact", async (req, res) => {
+  try {
+    const { name, email, phone, message } = req.body;
+
+    await Contact.create({ name, email, phone, message });
+
+    // 1️⃣ Email to owner
+    await transporter.sendMail({
+      from: process.env.OWNER_EMAIL,
+      to: process.env.OWNER_EMAIL,
+      subject: "New Gym Enquiry",
+      text: `
+New Enquiry Received:
+
+Name: ${name}
+Email: ${email}
+Phone: ${phone}
+Message: ${message}
+      `,
+    });
+
+    // 2️⃣ Auto reply to client
+    await transporter.sendMail({
+      from: process.env.OWNER_EMAIL,
+      to: email,
+      subject: "Thanks for contacting us",
+      text: `Hi ${name},
+
+Thank you for contacting us. We received your enquiry and will contact you shortly.
+
+- Gym Team`,
+    });
+
+    res.status(200).json({ success: true });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ success: false });
+  }
+});
 
 /* -------------------- MongoDB Atlas Connection -------------------- */
 

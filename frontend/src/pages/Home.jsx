@@ -5,6 +5,9 @@ import "./Home.css";
 import RotatingText from "../components/RotatingText";
 import WhatWeOffer from "./WhatWeOffer";
 import Membership from "./Membership";
+
+import EnquiryForm from "../components/EnquiryForm";
+
 import gbImg from "../assets/gb.png";
 import { API } from "../api"; // path adjust
 
@@ -98,6 +101,8 @@ function Home() {
 
       <WhatWeOffer />
       <Membership />
+
+      <EnquiryForm />
 
       {showChoice && (
         <AuthChoiceModal
