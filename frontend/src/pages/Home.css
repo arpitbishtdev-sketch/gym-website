@@ -6,24 +6,17 @@ section {
 
 .home {
   width: 100%;
-  margin-top: 90px; /* space below navbar */
+  padding-top: 90px; /* navbar ke neeche space */
 }
-
-/* ===== HERO ===== */
 
 .hero {
   width: 100%;
   max-width: 1300px;
-
-  /* ✅ space below navbar */
-  margin: 20px auto 0;
-  display: block;
+  margin: 0 auto; /* NO TOP MARGIN */
   border-radius: 24px;
   padding: 140px 80px;
-  color: white;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
 }
 
 /* ===== TEXT ===== */
@@ -90,8 +83,11 @@ section {
 /* ================= MOBILE (REAL CLEAN FIX) ================= */
 
 @media (max-width: 768px) {
+  .home {
+    padding-top: 80px; /* navbar height */
+  }
   .hero {
-    margin: 80px 0 0; /* space from navbar */
+    margin: 0;
     border-radius: 0;
     padding: 50px 24px;
   }
