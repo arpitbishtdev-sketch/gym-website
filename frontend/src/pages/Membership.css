@@ -73,6 +73,10 @@
     text-align: center;
   }
 
+  .membership-left {
+    width: 100%;
+  }
+
   .membership-left h1 {
     font-size: 34px;
   }
@@ -80,14 +84,16 @@
   .membership-left p {
     font-size: 15px;
     margin: 16px auto 0;
+    max-width: 100%;
   }
 
   .join-btn {
     margin: 22px auto 0;
+    width: 100%;
   }
 
   .membership-right {
-    margin-top: 20px;
+    margin-top: 30px;
   }
 
   .membership-right img {
