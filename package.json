@@ -1,0 +1,8 @@
+{
+  "name": "gym-backend-root",
+  "private": true,
+  "scripts": {
+    "start": "node backend/server.js",
+    "postinstall": "cd backend && npm install"
+  }
+}
