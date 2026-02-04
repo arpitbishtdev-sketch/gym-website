@@ -86,12 +86,15 @@
     display: block; /*   stop vertical centering */
     min-height: auto; /*   remove forced height */
   }
+
   .hero {
-    margin-top: 110px; /* same as desktop spacing from navbar */
+    margin-top: 110px;
     border-radius: 0;
 
-    /* THE REAL FIX */
-    min-height: calc(100vh - 110px);
+    /* REAL viewport height fix */
+    min-height: calc(100dvh - 110px);
+    min-height: calc(100svh - 110px); /* fallback */
+
     padding: 60px 24px;
 
     display: flex;
