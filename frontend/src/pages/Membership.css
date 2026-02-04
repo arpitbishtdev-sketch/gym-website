@@ -59,3 +59,50 @@
 
   transform: scale(1.6); /* ⭐ image badi dikhegi */
 }
+
+/* ================= MOBILE FIX ================= */
+
+@media (max-width: 930px) {
+  .membership-section {
+    padding: 20px;
+  }
+
+  .membership-card {
+    grid-template-columns: 1fr; /* stack */
+    padding: 30px 22px;
+    text-align: center;
+  }
+
+  .membership-left h1 {
+    font-size: 34px;
+  }
+
+  .membership-left p {
+    font-size: 15px;
+    margin: 16px auto 0;
+  }
+
+  .join-btn {
+    margin: 22px auto 0;
+  }
+
+  .membership-right {
+    margin-top: 20px;
+  }
+
+  .membership-right img {
+    transform: scale(1); /* remove zoom on mobile */
+    height: 220px;
+  }
+}
+
+/* extra small phones */
+@media (max-width: 480px) {
+  .membership-left h1 {
+    font-size: 28px;
+  }
+
+  .membership-right img {
+    height: 180px;
+  }
+}
