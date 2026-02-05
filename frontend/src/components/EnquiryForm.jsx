@@ -2,10 +2,12 @@ import { useState } from "react";
 import axios from "axios";
 import { API } from "../api";
 import { toast } from "react-toastify";
+import "./EnquiryForm.css";
 
 export default function EnquiryForm() {
   const [form, setForm] = useState({
-    name: "",
+    firstName: "",
+    lastName: "",
     email: "",
     phone: "",
     message: "",
@@ -18,64 +20,72 @@ export default function EnquiryForm() {
     e.preventDefault();
 
     try {
-      await axios.post(`${API}/api/contact`, form);
+      await axios.post(`${API}/api/contact`, {
+        name: form.firstName + " " + form.lastName,
+        email: form.email,
+        phone: form.phone,
+        message: form.message,
+      });
 
       toast.success("Enquiry sent! We will contact you soon 💪");
-
       setForm({
-        name: "",
+        firstName: "",
+        lastName: "",
         email: "",
         phone: "",
         message: "",
       });
-    } catch (err) {
-      toast.error("Something went wrong. Please try again.");
+    } catch {
+      toast.error("Something went wrong!");
     }
   };
 
   return (
-    <section style={{ padding: "70px 20px", textAlign: "center" }}>
-      <h2>Enquire Now</h2>
+    <form className="enquiry-form" onSubmit={handleSubmit}>
+      <h2>Send us a message</h2>
 
-      <form
-        onSubmit={handleSubmit}
-        style={{
-          maxWidth: "500px",
-          margin: "30px auto",
-          display: "flex",
-          flexDirection: "column",
-          gap: "12px",
-        }}
-      >
+      <div className="row">
         <input
-          name="name"
-          placeholder="Full Name"
-          value={form.name}
+          name="firstName"
+          placeholder="First Name"
+          value={form.firstName}
           onChange={handleChange}
           required
         />
         <input
-          name="email"
-          placeholder="Email"
-          value={form.email}
+          name="lastName"
+          placeholder="Last Name"
+          value={form.lastName}
           onChange={handleChange}
           required
         />
-        <input
-          name="phone"
-          placeholder="Phone"
-          value={form.phone}
-          onChange={handleChange}
-          required
-        />
-        <textarea
-          name="message"
-          placeholder="Message"
-          value={form.message}
-          onChange={handleChange}
-        />
-        <button type="submit">Send Enquiry</button>
-      </form>
-    </section>
+      </div>
+
+      <input
+        name="email"
+        placeholder="Email address"
+        value={form.email}
+        onChange={handleChange}
+        required
+      />
+
+      <input
+        name="phone"
+        placeholder="Phone number"
+        value={form.phone}
+        onChange={handleChange}
+        required
+      />
+
+      <textarea
+        name="message"
+        placeholder="Type your message here..."
+        rows={5}
+        value={form.message}
+        onChange={handleChange}
+      />
+
+      <button type="submit">Send Message</button>
+    </form>
   );
 }
