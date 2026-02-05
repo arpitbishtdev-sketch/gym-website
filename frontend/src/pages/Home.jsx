@@ -4,6 +4,9 @@ import AuthChoiceModal from "../components/AuthChoiceModal";
 import "./Home.css";
 import RotatingText from "../components/RotatingText";
 import WhatWeOffer from "./WhatWeOffer";
+import ScrollVelocity from "../components/ScrollVelocity";
+import "../components/ScrollVelocity.css";
+
 import Membership from "./Membership";
 
 import EnquiryForm from "../components/EnquiryForm";
@@ -100,8 +103,13 @@ function Home() {
       </section>
 
       <WhatWeOffer />
-      <Membership />
 
+      <Membership />
+      <ScrollVelocity
+        texts={["React Bits", "Scroll Down"]}
+        velocity={100}
+        className="custom-scroll-text"
+      />
       <EnquiryForm />
 
       {showChoice && (
