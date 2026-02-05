@@ -9,7 +9,17 @@
   grid-template-columns: 1.3fr 1fr;
   gap: 60px;
   align-items: stretch;
-  min-height: 720px; /* 🔥 makes both sides equal height */
+}
+
+.contact-info-card {
+  background: linear-gradient(135deg, #1f5e2a, #2f7b3c);
+  color: white;
+  padding: 56px 60px;
+  border-radius: 26px;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* LEFT FORM CARD */
@@ -51,26 +61,39 @@
   gap: 36px;
 }
 
+/* Blocks spacing */
+.info-block {
+  margin-bottom: 22px;
+}
+
 .info-box h3 {
   font-size: 30px;
   margin-bottom: 18px;
 }
 
-.info-box p {
-  margin-bottom: 10px;
-  font-size: 16px;
-  opacity: 0.95;
+/* Label (Visit us, Phone, Email) */
+.info-block h4 {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  opacity: 0.8;
+  margin-bottom: 6px;
 }
 
-.contact-info-card {
-  background: linear-gradient(135deg, #1f5e2a, #2f7b3c);
-  color: white;
-  padding: 42px;
-  border-radius: 26px;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* center content */
+/* Actual text glow */
+.info-block p {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.25);
+}
+
+/* Heading glow */
+.contact-info-card h2 {
+  font-size: 34px;
+  margin-bottom: 26px;
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 18px rgba(255, 255, 255, 0.35);
 }
 
 /* BUTTON polish */
