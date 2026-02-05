@@ -66,3 +66,23 @@
 .offer-title::after {
   right: 0;
 }
+
+@media (max-width: 768px) {
+  .offer-title {
+    font-size: 28px;
+    margin: 60px 0 40px;
+  }
+
+  .offer-title::before,
+  .offer-title::after {
+    width: 18%; /* 🔥 kam kar diya */
+    height: 2px; /* thoda thin */
+  }
+}
+
+@media (max-width: 420px) {
+  .offer-title::before,
+  .offer-title::after {
+    width: 12%; /* aur kam chhote phones pe */
+  }
+}
