@@ -108,7 +108,7 @@ function Home() {
       <ScrollVelocity
         texts={[
           <>
-            <span className="ip-highlight">IRON PARADISE</span> GYM
+            <span className="ip-highlight">• IRON PARADISE</span> GYM
           </>,
           "TRAIN • TRANSFORM • REPEAT",
         ]}
