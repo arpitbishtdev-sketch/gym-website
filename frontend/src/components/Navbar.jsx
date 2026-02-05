@@ -118,7 +118,7 @@ function Navbar() {
       label: "User",
       bgColor: "#0b1220",
       textColor: "white",
-      links: [{ label: "Dashboard", href: "/dashboard" }],
+      links: [{ label: "Dashboard", href: "/me" }],
     });
   }
 
