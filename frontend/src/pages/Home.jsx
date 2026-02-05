@@ -13,6 +13,10 @@ import CardSwap, { Card } from "../components/CardSwap";
 import EnquiryCTA from "../components/EnquiryCTA";
 
 import gbImg from "../assets/gb.png";
+import card1 from "../assets/swapcard/card1.jpg";
+import card2 from "../assets/swapcard/card2.png";
+import card3 from "../assets/swapcard/card3.avif";
+
 import { API } from "../api"; // path adjust
 
 function Home() {
@@ -141,9 +145,17 @@ function Home() {
             delay={5000}
             pauseOnHover={false}
           >
-            <Card />
-            <Card />
-            <Card />
+            <Card>
+              <img src={card1} alt="" className="swap-img" />
+            </Card>
+
+            <Card>
+              <img src={card2} alt="" className="swap-img" />
+            </Card>
+
+            <Card>
+              <img src={card3} alt="" className="swap-img" />
+            </Card>
           </CardSwap>
         </div>
       </section>
