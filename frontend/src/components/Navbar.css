@@ -56,22 +56,18 @@
   transform: translate(-50%, -50%);
 } */
 .logo-container {
-  text-decoration: none;
-  position: fixed;
+  position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  z-index: 10000;
-  pointer-events: none;
+  text-decoration: none;
 }
 
 .logo-container h2 {
   color: #1aff4b;
-  text-decoration: none;
   letter-spacing: 3px;
   font-weight: 700;
   text-shadow: 0 0 12px rgba(26, 255, 75, 0.7);
-  pointer-events: auto;
 }
 
 /* 🔥 Premium CTA button */
