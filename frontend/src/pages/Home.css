@@ -163,19 +163,20 @@ section {
 /* ===== MOBILE ===== */
 @media (max-width: 768px) {
   .home {
-    padding-top: 0; /* navbar gap hatao */
+    padding-top: 0 !important; /* navbar gap hatao */
   }
 
   .hero {
-    max-width: 100%;
-    margin: 0;
-    border-radius: 0;
-    padding: 120px 24px;
-    min-height: 100vh;
+    margin-top: -90px; /* navbar ke niche se hero start */
+    padding: 140px 24px 80px; /* sirf text spacing */
+    border-radius: 0 !important;
+    max-width: 100% !important;
 
-    background-position: center;
-    background-size: cover;
+    min-height: 100vh;
+    background-size: cover !important;
+    background-position: center !important;
   }
+
   .hero-title {
     font-size: 36px;
   }
