@@ -106,7 +106,7 @@ function Home() {
 
       <Membership />
       <ScrollVelocity
-        texts={["React Bits", "Scroll Down"]}
+        texts={["IRON PARADISE GYM", "TRAIN • TRANSFORM • REPEAT"]}
         velocity={100}
         className="custom-scroll-text"
       />
