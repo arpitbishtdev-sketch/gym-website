@@ -64,6 +64,7 @@
 }
 
 .logo-container h2 {
+  position: fixed;
   color: #1aff4b;
   letter-spacing: 3px;
   font-weight: 700;
