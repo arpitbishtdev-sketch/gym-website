@@ -217,7 +217,6 @@
 
 @media (max-width: 768px) {
   .card-nav-container {
-    position: fixed;
     top: 12px;
     left: 50%;
     transform: translateX(-50%);
