@@ -71,17 +71,22 @@ section {
 }
 
 .experience-section {
-  width: 100%;
+  width: 88%;
+  max-width: 1300px;
+  margin: 100px auto;
+  padding: 70px 70px;
   min-height: 650px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 80px 8%;
   gap: 60px;
 
-  background: linear-gradient(135deg, #1f7926 0%, #1b913a 40%, #127c20 100%);
+  background: #2f6f2f;
   border-radius: 24px;
-  margin: 80px auto;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+
+  position: relative; /* needed for ::before */
 }
 
 .experience-section::before {
