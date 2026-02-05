@@ -9,7 +9,7 @@ import "../components/ScrollVelocity.css";
 
 import Membership from "./Membership";
 
-import EnquiryForm from "../components/EnquiryForm";
+import EnquiryCTA from "../components/EnquiryCTA";
 
 import gbImg from "../assets/gb.png";
 import { API } from "../api"; // path adjust
@@ -116,7 +116,7 @@ function Home() {
         className="custom-scroll-text"
       />
 
-      <EnquiryForm />
+      <EnquiryCTA />
 
       {showChoice && (
         <AuthChoiceModal
