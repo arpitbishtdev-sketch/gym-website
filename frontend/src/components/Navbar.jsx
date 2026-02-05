@@ -134,9 +134,9 @@ function Navbar() {
             <div className="hamburger-line" />
           </div>
 
-          <div className="logo-container">
+          <Link to="/" className="logo-container">
             <h2>GYM</h2>
-          </div>
+          </Link>
 
           {!isLoggedIn ? (
             <button className="card-nav-cta-button" onClick={handleJoinClick}>
