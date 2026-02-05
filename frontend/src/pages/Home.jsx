@@ -110,7 +110,7 @@ function Home() {
           <>
             <span className="ip-highlight">• IRON PARADISE</span> GYM
           </>,
-          "TRAIN • TRANSFORM • REPEAT",
+          "• TRAIN • TRANSFORM • REPEAT",
         ]}
         velocity={100}
         className="custom-scroll-text"
