@@ -1,0 +1,53 @@
+.loader-screen {
+  position: fixed;
+  inset: 0;
+  background: #0b0f14;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeOut 1s ease 2.4s forwards;
+}
+
+.loader-logo {
+  color: #1cdb2c;
+  font-size: 42px;
+  letter-spacing: 4px;
+  font-weight: 800;
+  margin-bottom: 30px;
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
+.loader-bar {
+  width: 200px;
+  height: 4px;
+  background: #1cdb2c;
+  animation: loadBar 2s ease forwards;
+}
+
+@keyframes loadBar {
+  from {
+    width: 0;
+  }
+  to {
+    width: 200px;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
