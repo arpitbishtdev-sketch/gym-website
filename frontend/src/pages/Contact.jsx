@@ -1,5 +1,11 @@
+import EnquiryForm from "../components/EnquiryForm";
+
 function Contact() {
-  return <h1>Contact Page</h1>;
+  return (
+    <div style={{ paddingTop: "40px" }}>
+      <EnquiryForm />
+    </div>
+  );
 }
 
 export default Contact;
