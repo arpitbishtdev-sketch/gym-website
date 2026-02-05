@@ -78,6 +78,10 @@ section {
   justify-content: space-between;
   padding: 80px 8%;
   gap: 60px;
+
+  background: #0b0f14; /* ADD THIS */
+  border-radius: 24px; /* ADD THIS */
+  margin: 80px auto; /* ADD THIS */
 }
 
 .experience-left {
@@ -94,7 +98,7 @@ section {
   font-size: 18px;
   line-height: 1.6;
   margin-bottom: 20px;
-  color: #ccc;
+  color: #bfc7cf;
 }
 
 .experience-left ul {
