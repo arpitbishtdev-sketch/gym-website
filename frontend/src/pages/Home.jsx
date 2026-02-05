@@ -117,28 +117,38 @@ function Home() {
         className="custom-scroll-text"
       />
 
+      <section className="experience-section">
+        <div className="experience-left">
+          <h2>Why Members Love Training Here</h2>
+
+          <p>
+            More than a gym — this is a place where discipline, energy and
+            transformation live every day.
+          </p>
+
+          <ul>
+            <li>✔️ Premium equipment & spacious layout</li>
+            <li>✔️ Motivating environment</li>
+            <li>✔️ Friendly & serious fitness community</li>
+            <li>✔️ Clean, aesthetic and powerful vibe</li>
+          </ul>
+        </div>
+
+        <div className="experience-right cardswap-wrapper">
+          <CardSwap
+            cardDistance={60}
+            verticalDistance={70}
+            delay={5000}
+            pauseOnHover={false}
+          >
+            <Card />
+            <Card />
+            <Card />
+          </CardSwap>
+        </div>
+      </section>
+
       <EnquiryCTA />
-      <div className="cardswap-wrapper">
-        <CardSwap
-          cardDistance={60}
-          verticalDistance={70}
-          delay={5000}
-          pauseOnHover={false}
-        >
-          <Card>
-            <h3>Card 1</h3>
-            <p>Your content here</p>
-          </Card>
-          <Card>
-            <h3>Card 2</h3>
-            <p>Your content here</p>
-          </Card>
-          <Card>
-            <h3>Card 3</h3>
-            <p>Your content here</p>
-          </Card>
-        </CardSwap>
-      </div>
 
       {showChoice && (
         <AuthChoiceModal
