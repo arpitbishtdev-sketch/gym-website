@@ -166,7 +166,9 @@ function Home() {
         baseRotation={3}
         blurStrength={4}
       >
-        <EnquiryCTA />
+        <div>
+          <EnquiryCTA />
+        </div>
       </ScrollReveal>
 
       {showChoice && (
