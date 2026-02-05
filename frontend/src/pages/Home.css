@@ -7,6 +7,7 @@ section {
 /* ===== HOME ===== */
 .home {
   width: 100%;
+  padding-top: 120px; /* navbar ke niche se hero start */
 }
 
 /* ===== HERO ===== */
