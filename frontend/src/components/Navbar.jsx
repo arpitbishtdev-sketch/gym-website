@@ -98,17 +98,17 @@ function Navbar() {
       bgColor: "#0b1220",
       textColor: "white",
       links: [
-        { label: "Home", href: "/" },
         { label: "Plans", href: "/plans" },
+        { label: "Gallery", href: "/gallery" },
       ],
     },
     {
-      label: "Gallery",
+      label: "Enquiry",
       bgColor: "#0b1220",
       textColor: "white",
       links: [
-        { label: "Gallery", href: "/gallery" },
         { label: "Contact", href: "/contact" },
+        { label: "Membership Plans", href: "/plans" },
       ],
     },
   ];
@@ -118,7 +118,10 @@ function Navbar() {
       label: "User",
       bgColor: "#0b1220",
       textColor: "white",
-      links: [{ label: "Dashboard", href: "/me" }],
+      links: [
+        { label: "Dashboard", href: "/me" },
+        { label: "Logout", action: "logout" },
+      ],
     });
   }
 
@@ -160,12 +163,24 @@ function Navbar() {
               <div className="nav-card-label">{item.label}</div>
 
               <div className="nav-card-links">
-                {item.links.map((l, j) => (
-                  <Link key={j} to={l.href} className="nav-card-link">
-                    <GoArrowUpRight />
-                    {l.label}
-                  </Link>
-                ))}
+                {item.links.map((l, j) =>
+                  l.action === "logout" ? (
+                    <div
+                      key={j}
+                      className="nav-card-link"
+                      onClick={handleLogout}
+                      style={{ cursor: "pointer" }}
+                    >
+                      <GoArrowUpRight />
+                      {l.label}
+                    </div>
+                  ) : (
+                    <Link key={j} to={l.href} className="nav-card-link">
+                      <GoArrowUpRight />
+                      {l.label}
+                    </Link>
+                  ),
+                )}
               </div>
             </div>
           ))}
