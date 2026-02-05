@@ -29,6 +29,13 @@ function Layout() {
   const isAdminRoute = location.pathname.startsWith("/admin");
   const [showAuth, setShowAuth] = useState(false);
   const API = import.meta.env.VITE_API_URL;
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    const timer = setTimeout(() => setLoading(false), 1200);
+    return () => clearTimeout(timer);
+  }, [location.pathname]);
 
   // ✅ Check login from backend cookie
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -89,6 +96,7 @@ function Layout() {
 
   return (
     <>
+      {loading && <Loader />}
       <ScrollToTop />
 
       {!isAdminRoute && (
@@ -157,14 +165,6 @@ function Layout() {
 }
 
 export default function App() {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    setTimeout(() => setLoading(false), 2200);
-  }, []);
-
-  if (loading) return <Loader />;
-
   return (
     <BrowserRouter>
       <Layout />
