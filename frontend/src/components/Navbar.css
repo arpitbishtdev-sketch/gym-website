@@ -57,10 +57,12 @@
 } */
 .logo-container {
   text-decoration: none;
-  position: absolute;
+  position: fixed;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  z-index: 10000;
+  pointer-events: none;
 }
 
 .logo-container h2 {
@@ -69,6 +71,7 @@
   letter-spacing: 3px;
   font-weight: 700;
   text-shadow: 0 0 12px rgba(26, 255, 75, 0.7);
+  pointer-events: auto;
 }
 
 /* 🔥 Premium CTA button */
@@ -211,5 +214,14 @@
 
   .nav-card-link {
     font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .card-nav-container {
+    position: fixed;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
