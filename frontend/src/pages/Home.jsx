@@ -106,10 +106,16 @@ function Home() {
 
       <Membership />
       <ScrollVelocity
-        texts={["IRON PARADISE GYM", "TRAIN • TRANSFORM • REPEAT"]}
+        texts={[
+          <>
+            <span className="ip-highlight">IRON PARADISE</span> GYM
+          </>,
+          "TRAIN • TRANSFORM • REPEAT",
+        ]}
         velocity={100}
         className="custom-scroll-text"
       />
+
       <EnquiryForm />
 
       {showChoice && (

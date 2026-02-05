@@ -18,6 +18,10 @@
   flex-shrink: 0;
 }
 
+.ip-highlight {
+  color: #1cdb2c; /* your gym green */
+}
+
 @media (min-width: 768px) {
   .scroller {
     font-size: 5rem;
