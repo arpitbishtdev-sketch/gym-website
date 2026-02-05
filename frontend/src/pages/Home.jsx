@@ -118,7 +118,7 @@ function Home() {
       />
 
       <EnquiryCTA />
-      <div style={{ height: "600px", position: "relative" }}>
+      <div className="cardswap-wrapper">
         <CardSwap
           cardDistance={60}
           verticalDistance={70}
