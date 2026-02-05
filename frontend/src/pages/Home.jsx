@@ -9,7 +9,7 @@ import "../components/ScrollVelocity.css";
 
 import Membership from "./Membership";
 import CardSwap, { Card } from "../components/CardSwap";
-
+import ScrollReveal from "../components/ScrollReveal";
 import EnquiryCTA from "../components/EnquiryCTA";
 
 import gbImg from "../assets/gb.png";
@@ -160,7 +160,14 @@ function Home() {
         </div>
       </section>
 
-      <EnquiryCTA />
+      <ScrollReveal
+        baseOpacity={0.1}
+        enableBlur
+        baseRotation={3}
+        blurStrength={4}
+      >
+        <EnquiryCTA />
+      </ScrollReveal>
 
       {showChoice && (
         <AuthChoiceModal
