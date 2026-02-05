@@ -56,15 +56,16 @@
   transform: translate(-50%, -50%);
 } */
 .logo-container {
+  text-decoration: none;
   position: absolute;
   left: 50%;
-  top: 18px; /* fixed from top */
-  transform: translateX(-80%);
-  /* transform: translateY(-50%); */
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .logo-container h2 {
   color: #1aff4b;
+  text-decoration: none;
   letter-spacing: 3px;
   font-weight: 700;
   text-shadow: 0 0 12px rgba(26, 255, 75, 0.7);
@@ -196,11 +197,6 @@
 
   .card-nav-cta-button {
     display: none;
-  }
-
-  .logo-container {
-    margin: 0;
-    text-align: left;
   }
 }
 
