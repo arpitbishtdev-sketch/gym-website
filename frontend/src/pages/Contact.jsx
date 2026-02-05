@@ -22,7 +22,7 @@ export default function Contact() {
 
             <div className="info-block">
               <h4>Phone</h4>
-              <p>+91 98765 43210</p>
+              <p>+91 8383804987</p>
             </div>
 
             <div className="info-block">
