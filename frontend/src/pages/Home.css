@@ -105,6 +105,10 @@ section {
 .experience-left {
   flex: 1;
   color: white;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* 👈 THIS FIXES IT */
 }
 
 .experience-left h2 {
