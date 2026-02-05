@@ -27,6 +27,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0.5rem 0.8rem 0.55rem 1.2rem;
+  position: relative; /* ⭐⭐⭐ THIS IS THE REAL FIX */
 }
 
 /* 🔥 Hamburger subtle */
@@ -61,6 +62,7 @@
   top: 50%;
   transform: translate(-50%, -50%);
   text-decoration: none;
+  pointer-events: auto;
 }
 
 .logo-container h2 {
