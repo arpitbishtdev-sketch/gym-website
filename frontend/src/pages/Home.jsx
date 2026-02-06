@@ -10,6 +10,7 @@ import "../components/ScrollVelocity.css";
 import Membership from "./Membership";
 import CardSwap, { Card } from "../components/CardSwap";
 import ScrollReveal from "../components/ScrollReveal";
+import CountUp from "../components/CountUp";
 import EnquiryCTA from "../components/EnquiryCTA";
 
 import gbImg from "../assets/gb.png";
@@ -157,6 +158,23 @@ function Home() {
               <img src={card3} alt="" className="swap-img" />
             </Card>
           </CardSwap>
+        </div>
+      </section>
+
+      <section className="stats-strip">
+        <div className="stat">
+          <CountUp to={500} duration={2} className="stat-number" />
+          <p>Active Members</p>
+        </div>
+
+        <div className="stat">
+          <CountUp to={12} duration={2} className="stat-number" />
+          <p>Expert Trainers</p>
+        </div>
+
+        <div className="stat">
+          <CountUp to={8} duration={2} className="stat-number" />
+          <p>Years of Excellence</p>
         </div>
       </section>
 
