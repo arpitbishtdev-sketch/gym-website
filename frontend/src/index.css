@@ -11,16 +11,6 @@ body,
   height: 100%;
 }
 
-html,
-body {
-  overflow-x: hidden; /* ⭐ */
-}
-
-img {
-  max-width: 100%;
-  display: block;
-}
-
 body {
   font-family: Arial, Helvetica, sans-serif;
   background-color: #f5f7fb;
