@@ -242,102 +242,194 @@ section {
   }
 }
 
-/* ===== STATS SECTION LAYOUT ===== */
+/* ===== PREMIUM STATS SECTION ===== */
 .stats-section {
   width: 92%;
   max-width: 1300px;
-  margin: 80px auto 120px;
-  padding: 40px 50px;
+  margin: 90px auto 130px;
+  padding: 50px 60px;
 
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 60px;
+  gap: 70px;
 
-  border-radius: 26px;
+  border-radius: 30px;
 
-  background: linear-gradient(
-    120deg,
-    rgba(8, 12, 10, 0.95),
-    rgba(18, 30, 22, 0.92)
-  );
-
-  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.45);
+  background: radial-gradient(circle at 20% 30%, #0f1f17, #0a0f0c 70%);
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.55),
+    inset 0 0 120px rgba(28, 219, 44, 0.06);
 }
 
-/* LEFT LOGO */
+/* ===== LEFT LOGO BADGE ===== */
 .stats-left {
-  flex: 0 0 260px;
+  flex: 0 0 240px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .stats-logo {
-  width: 180px;
-  height: auto;
-  object-fit: contain;
+  width: 200px;
+  border-radius: 50%;
+  padding: 14px;
+  background: radial-gradient(circle, #0f1f17, #0a0f0c);
+  box-shadow:
+    0 0 25px rgba(28, 219, 44, 0.35),
+    inset 0 0 25px rgba(28, 219, 44, 0.15);
 }
 
-/* RIGHT SIDE */
+/* ===== RIGHT SIDE GRID ===== */
 .stats-right {
   flex: 1;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
 }
 
-/* STAT BOX */
+/* ===== EACH STAT = PREMIUM CARD ===== */
 .stat-box {
-  text-align: center;
-  flex: 1;
+  background: linear-gradient(145deg, #0d1511, #0a0f0c);
+  border-radius: 22px;
+  padding: 28px 22px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  transition: 0.35s ease;
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.5),
+    inset 0 0 40px rgba(28, 219, 44, 0.04);
 }
 
-/* icon + number row */
+.stat-box:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 25px 60px rgba(28, 219, 44, 0.25),
+    inset 0 0 60px rgba(28, 219, 44, 0.08);
+}
+
+/* icon + number */
 .stat-top {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 14px;
+  gap: 16px;
+  margin-bottom: 10px;
 }
 
 .stat-icon {
-  width: 42px;
-  height: 42px;
-  object-fit: contain;
+  width: 46px;
+  height: 46px;
+  filter: drop-shadow(0 0 8px rgba(28, 219, 44, 0.6));
 }
 
-/* number */
+/* glowing number */
 .stat-number {
   font-size: 56px;
   font-weight: 800;
   color: #1cdb2c;
-  text-shadow: 0 0 14px rgba(28, 219, 44, 0.7);
+  text-shadow:
+    0 0 12px rgba(28, 219, 44, 0.9),
+    0 0 28px rgba(28, 219, 44, 0.6);
 }
 
 .plus {
-  margin-left: 4px;
+  margin-left: 6px;
 }
 
 /* label */
 .stat-label {
-  margin-top: 8px;
-  font-size: 16px;
-  color: #d9f5df;
+  font-size: 15px;
+  color: #d8f5df;
+  letter-spacing: 0.6px;
 }
 
-@media (max-width: 768px) {
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
   .stats-section {
     flex-direction: column;
-    gap: 28px;
-    padding: 32px 20px;
+    gap: 40px;
   }
 
-  .stat-box::after {
-    display: none;
+  .stats-right {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+}
+
+/* ===== STATS SECTION — TABLET ===== */
+@media (max-width: 1024px) {
+  .stats-section {
+    padding: 40px 30px;
+    gap: 40px;
+  }
+
+  .stats-logo {
+    width: 160px;
   }
 
   .stat-number {
-    font-size: 42px;
+    font-size: 46px;
+  }
+}
+
+/* ===== STATS SECTION — MOBILE ===== */
+@media (max-width: 768px) {
+  .stats-section {
+    flex-direction: column;
+    padding: 36px 20px;
+    gap: 30px;
+    border-radius: 24px;
+  }
+
+  /* logo on top center */
+  .stats-left {
+    flex: unset;
+  }
+
+  .stats-logo {
+    width: 140px;
+  }
+
+  /* cards in column */
+  .stats-right {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    width: 100%;
+  }
+
+  .stat-box {
+    width: 100%;
+    padding: 22px;
+  }
+
+  .stat-top {
+    gap: 12px;
+  }
+
+  .stat-icon {
+    width: 34px;
+    height: 34px;
+  }
+
+  .stat-number {
+    font-size: 38px;
+  }
+
+  .stat-label {
+    font-size: 14px;
+  }
+}
+
+/* ===== VERY SMALL PHONES ===== */
+@media (max-width: 420px) {
+  .stats-logo {
+    width: 120px;
+  }
+
+  .stat-number {
+    font-size: 32px;
   }
 }
