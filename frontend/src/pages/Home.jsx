@@ -123,7 +123,7 @@ function Home() {
 
       <section className="experience-section">
         <div className="experience-left">
-          <h2>Why Members Love Training Here</h2>
+          <h1>Why Members Love Training Here</h1>
 
           <p>
             More than a gym — this is a place where discipline, energy and
