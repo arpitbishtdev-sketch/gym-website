@@ -312,6 +312,14 @@ section {
   );
 }
 
+.stat-icon {
+  height: 48px;
+  width: 48px;
+  object-fit: contain;
+  margin-bottom: 14px;
+  filter: drop-shadow(0 0 6px rgba(28, 219, 44, 0.6));
+}
+
 @media (max-width: 768px) {
   .stats-section {
     flex-direction: column;

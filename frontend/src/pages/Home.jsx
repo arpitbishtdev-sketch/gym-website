@@ -18,6 +18,10 @@ import card1 from "../assets/swapcard/card1.jpg";
 import card2 from "../assets/swapcard/card2.png";
 import card3 from "../assets/swapcard/card3.avif";
 
+import gymIcon from "../assets/Countup/gym (1).png";
+import trainerIcon from "../assets/Countup/trainer.png";
+import certIcon from "../assets/Countup/certificate.png";
+
 import { API } from "../api"; // path adjust
 
 function Home() {
@@ -163,6 +167,7 @@ function Home() {
 
       <section className="stats-section">
         <div className="stat-box">
+          <img src={gymIcon} className="stat-icon" />
           <div className="stat-number">
             <CountUp to={500} />
           </div>
@@ -170,6 +175,7 @@ function Home() {
         </div>
 
         <div className="stat-box">
+          <img src={trainerIcon} className="stat-icon" />
           <div className="stat-number">
             <CountUp to={12} />
           </div>
@@ -177,6 +183,7 @@ function Home() {
         </div>
 
         <div className="stat-box">
+          <img src={certIcon} className="stat-icon" />
           <div className="stat-number">
             <CountUp to={8} />
           </div>
