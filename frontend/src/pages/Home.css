@@ -312,11 +312,17 @@ section {
   );
 }
 
+.stat-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
 .stat-icon {
-  height: 48px;
-  width: 48px;
+  height: 42px;
+  width: 42px;
   object-fit: contain;
-  margin-bottom: 14px;
   filter: drop-shadow(0 0 6px rgba(28, 219, 44, 0.6));
 }
 

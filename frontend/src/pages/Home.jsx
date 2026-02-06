@@ -167,25 +167,31 @@ function Home() {
 
       <section className="stats-section">
         <div className="stat-box">
-          <img src={gymIcon} className="stat-icon" />
-          <div className="stat-number">
-            <CountUp to={500} />
+          <div className="stat-top">
+            <img src={gymIcon} className="stat-icon" />
+            <div className="stat-number">
+              <CountUp to={500} />
+            </div>
           </div>
           <div className="stat-label">Active Members</div>
         </div>
 
         <div className="stat-box">
-          <img src={trainerIcon} className="stat-icon" />
-          <div className="stat-number">
-            <CountUp to={12} />
+          <div className="stat-top">
+            <img src={trainerIcon} className="stat-icon" />
+            <div className="stat-number">
+              <CountUp to={12} />
+            </div>
           </div>
           <div className="stat-label">Expert Trainers</div>
         </div>
 
         <div className="stat-box">
-          <img src={certIcon} className="stat-icon" />
-          <div className="stat-number">
-            <CountUp to={8} />
+          <div className="stat-top">
+            <img src={certIcon} className="stat-icon" />
+            <div className="stat-number">
+              <CountUp to={8} />
+            </div>
           </div>
           <div className="stat-label">Years of Excellence</div>
         </div>
