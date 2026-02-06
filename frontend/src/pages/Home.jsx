@@ -18,6 +18,8 @@ import card1 from "../assets/swapcard/card1.jpg";
 import card2 from "../assets/swapcard/card2.png";
 import card3 from "../assets/swapcard/card3.avif";
 
+import logoImg from "../assets/memb/logo.png";
+
 import gymIcon from "../assets/Countup/gym (1).png";
 import trainerIcon from "../assets/Countup/trainer.png";
 import certIcon from "../assets/Countup/certificate.png";
@@ -168,17 +170,14 @@ function Home() {
       <section className="stats-section">
         {/* LEFT LOGO */}
         <div className="stats-left">
-          <img
-            src={require("../assets/memb/logo.png")}
-            className="stats-logo"
-          />
+          <img src={logoImg} alt="Gym Logo" className="stats-logo" />
         </div>
 
         {/* RIGHT STATS */}
         <div className="stats-right">
           <div className="stat-box">
             <div className="stat-top">
-              <img src={gymIcon} className="stat-icon" />
+              <img src={gymIcon} className="stat-icon" alt="Members icon" />
               <div className="stat-number">
                 <CountUp to={500} />
                 <span className="plus">+</span>
@@ -189,7 +188,7 @@ function Home() {
 
           <div className="stat-box">
             <div className="stat-top">
-              <img src={trainerIcon} className="stat-icon" />
+              <img src={trainerIcon} className="stat-icon" alt="Trainer icon" />
               <div className="stat-number">
                 <CountUp to={12} />
               </div>
@@ -199,7 +198,11 @@ function Home() {
 
           <div className="stat-box">
             <div className="stat-top">
-              <img src={certIcon} className="stat-icon" />
+              <img
+                src={certIcon}
+                className="stat-icon"
+                alt="Certificate icon"
+              />
               <div className="stat-number">
                 <CountUp to={8} />
               </div>
