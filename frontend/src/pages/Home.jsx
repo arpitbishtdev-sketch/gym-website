@@ -181,8 +181,8 @@ function Home() {
       <ScrollReveal
         baseOpacity={0.1}
         enableBlur
-        baseRotation={3}
-        blurStrength={4}
+        baseRotation={2}
+        blurStrength={20}
       >
         <div>
           <EnquiryCTA />
