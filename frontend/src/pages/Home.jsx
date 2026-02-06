@@ -166,34 +166,46 @@ function Home() {
       </section>
 
       <section className="stats-section">
-        <div className="stat-box">
-          <div className="stat-top">
-            <img src={gymIcon} className="stat-icon" />
-            <div className="stat-number">
-              <CountUp to={500} />
-            </div>
-          </div>
-          <div className="stat-label">Active Members</div>
+        {/* LEFT LOGO */}
+        <div className="stats-left">
+          <img
+            src={require("../assets/memb/logo.png")}
+            className="stats-logo"
+          />
         </div>
 
-        <div className="stat-box">
-          <div className="stat-top">
-            <img src={trainerIcon} className="stat-icon" />
-            <div className="stat-number">
-              <CountUp to={12} />
+        {/* RIGHT STATS */}
+        <div className="stats-right">
+          <div className="stat-box">
+            <div className="stat-top">
+              <img src={gymIcon} className="stat-icon" />
+              <div className="stat-number">
+                <CountUp to={500} />
+                <span className="plus">+</span>
+              </div>
             </div>
+            <div className="stat-label">Active Members</div>
           </div>
-          <div className="stat-label">Expert Trainers</div>
-        </div>
 
-        <div className="stat-box">
-          <div className="stat-top">
-            <img src={certIcon} className="stat-icon" />
-            <div className="stat-number">
-              <CountUp to={8} />
+          <div className="stat-box">
+            <div className="stat-top">
+              <img src={trainerIcon} className="stat-icon" />
+              <div className="stat-number">
+                <CountUp to={12} />
+              </div>
             </div>
+            <div className="stat-label">Expert Trainers</div>
           </div>
-          <div className="stat-label">Years of Excellence</div>
+
+          <div className="stat-box">
+            <div className="stat-top">
+              <img src={certIcon} className="stat-icon" />
+              <div className="stat-number">
+                <CountUp to={8} />
+              </div>
+            </div>
+            <div className="stat-label">Years of Excellence</div>
+          </div>
         </div>
       </section>
 
