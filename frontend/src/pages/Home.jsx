@@ -161,20 +161,26 @@ function Home() {
         </div>
       </section>
 
-      <section className="stats-strip">
-        <div className="stat">
-          <CountUp to={500} duration={2} className="stat-number" />
-          <p>Active Members</p>
+      <section className="stats-section">
+        <div className="stat-box">
+          <div className="stat-number">
+            <CountUp to={500} />
+          </div>
+          <div className="stat-label">Active Members</div>
         </div>
 
-        <div className="stat">
-          <CountUp to={12} duration={2} className="stat-number" />
-          <p>Expert Trainers</p>
+        <div className="stat-box">
+          <div className="stat-number">
+            <CountUp to={12} />
+          </div>
+          <div className="stat-label">Expert Trainers</div>
         </div>
 
-        <div className="stat">
-          <CountUp to={8} duration={2} className="stat-number" />
-          <p>Years of Excellence</p>
+        <div className="stat-box">
+          <div className="stat-number">
+            <CountUp to={8} />
+          </div>
+          <div className="stat-label">Years of Excellence</div>
         </div>
       </section>
 
